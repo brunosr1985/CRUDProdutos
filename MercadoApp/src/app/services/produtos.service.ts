@@ -30,24 +30,24 @@ export class ProdutosService {
     );
   }
 
-  getProduto(postId: number): Observable<Produto> {
-      return this.http.get<Produto>(this.myAppUrl + this.myApiUrl + postId)
+  getProduto(produtoId: number): Observable<Produto> {
+      return this.http.get<Produto>(this.myAppUrl + this.myApiUrl + produtoId)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
 
-  saveProduto(blogPost): Observable<Produto> {
-      return this.http.post<Produto>(this.myAppUrl + this.myApiUrl, JSON.stringify(blogPost), this.httpOptions)
+  saveProduto(produto): Observable<Produto> {
+      return this.http.post<Produto>(this.myAppUrl + this.myApiUrl, JSON.stringify(produto), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)
       );
   }
 
-  updateProduto(postId: number, blogPost): Observable<Produto> {
-      return this.http.put<Produto>(this.myAppUrl + this.myApiUrl + postId, JSON.stringify(blogPost), this.httpOptions)
+  updateProduto(postId: number, produto): Observable<Produto> {
+      return this.http.put<Produto>(this.myAppUrl + this.myApiUrl + postId, JSON.stringify(produto), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.errorHandler)

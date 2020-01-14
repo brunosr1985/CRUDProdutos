@@ -29,10 +29,10 @@ namespace MercadoAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSpaStaticFiles(configuration =>
+            /*services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "MercadoApp/dist";
-            });
+            });*/
             services.AddControllers();
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
@@ -60,7 +60,7 @@ namespace MercadoAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSpaStaticFiles();
+            //app.UseSpaStaticFiles();
 
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
@@ -73,7 +73,7 @@ namespace MercadoAPI
                     template: "{controller}/{action=Index}/{id?}");
             });
 
-            app.UseSpa(spa =>
+            /*app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
                 // see https://go.microsoft.com/fwlink/?linkid=864501
@@ -84,7 +84,7 @@ namespace MercadoAPI
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
-            });
+            });*/
         }
     }
 }

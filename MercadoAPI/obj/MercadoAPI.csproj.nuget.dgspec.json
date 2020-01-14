@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bruno\\source\\repos\\MercadoApp\\MercadoAPI\\MercadoAPI.csproj": {}
+    "C:\\Users\\bruno\\source\\repos\\CRUDProdutos\\MercadoAPI\\MercadoAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bruno\\source\\repos\\MercadoApp\\MercadoAPI\\MercadoAPI.csproj": {
+    "C:\\Users\\bruno\\source\\repos\\CRUDProdutos\\MercadoAPI\\MercadoAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bruno\\source\\repos\\MercadoApp\\MercadoAPI\\MercadoAPI.csproj",
+        "projectUniqueName": "C:\\Users\\bruno\\source\\repos\\CRUDProdutos\\MercadoAPI\\MercadoAPI.csproj",
         "projectName": "MercadoAPI",
-        "projectPath": "C:\\Users\\bruno\\source\\repos\\MercadoApp\\MercadoAPI\\MercadoAPI.csproj",
+        "projectPath": "C:\\Users\\bruno\\source\\repos\\CRUDProdutos\\MercadoAPI\\MercadoAPI.csproj",
         "packagesPath": "C:\\Users\\bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bruno\\source\\repos\\MercadoApp\\MercadoAPI\\obj\\",
+        "outputPath": "C:\\Users\\bruno\\source\\repos\\CRUDProdutos\\MercadoAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

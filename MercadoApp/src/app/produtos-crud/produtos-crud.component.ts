@@ -14,9 +14,9 @@ export class ProdutosCRUDComponent implements OnInit {
   actionType: string;
   formTitle: string;
   formBody: string;
-  postId: number;
+  produtoId: number;
   errorMessage: any;
-  existingBlogPost: Produto;
+  existingProduto: Produto;
 
   constructor(private produtosService: ProdutosService, private formBuilder: FormBuilder,
               private avRoute: ActivatedRoute, private router: Router) {
@@ -25,28 +25,29 @@ export class ProdutosCRUDComponent implements OnInit {
     this.formTitle = 'title';
     this.formBody = 'body';
     if (this.avRoute.snapshot.params[idParam]) {
-      this.postId = this.avRoute.snapshot.params[idParam];
+      this.produtoId = this.avRoute.snapshot.params[idParam];
     }
 
     this.form = this.formBuilder.group(
       {
-        id: 0,
-        nome: [''],
-        valor: [''],
-        imagem: ['']
+        id: this.produtoId,
+        nome: '',
+        valor: '',
+        imagem: ''
       }
     )
   }
 
   ngOnInit() {
 
-    if (this.postId > 0) {
+    if (this.produtoId > 0) {
       this.actionType = 'Edit';
-      this.produtosService.getProduto(this.postId)
+      this.produtosService.getProduto(this.produtoId)
         .subscribe(data => (
-          this.existingBlogPost = data,
-          this.form.controls[this.formTitle].setValue(data.nome),
-          this.form.controls[this.formBody].setValue(data.valor)
+          this.existingProduto = data,
+          this.form.controls['nome'].setValue(data.nome),
+          this.form.controls['valor'].setValue(data.valor),
+          this.form.controls['imagem'].setValue(data.imagem)
         ));
     }
   }
@@ -59,9 +60,9 @@ export class ProdutosCRUDComponent implements OnInit {
     if (this.actionType === 'Add') {
       let produto: Produto = {
         id: 0,
-        nome: this.form.get(this.formTitle).value,
-        valor: this.form.get(this.formBody).value,
-        imagem: ''
+        nome: this.form.get('nome').value,
+        valor: this.form.get('valor').value,
+        imagem: this.form.get('imagem').value
 
       };
 
@@ -73,10 +74,10 @@ export class ProdutosCRUDComponent implements OnInit {
 
     if (this.actionType === 'Edit') {
       let produto: Produto = {
-        id: this.existingBlogPost.id,
-        nome: this.existingBlogPost.nome,
-        valor: this.existingBlogPost.valor,
-        imagem: this.existingBlogPost.imagem,
+        id: this.existingProduto.id,
+        nome: this.form.get('nome').value,
+        valor: this.form.get('valor').value,
+        imagem: this.form.get('imagem').value
       };
       this.produtosService.updateProduto(produto.id, produto)
         .subscribe((data) => {
